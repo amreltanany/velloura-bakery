@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VÈLÔURÁ — Neighborhood Bakery</title>
+<meta name="description" content="A neighborhood bakery making slow-fermented bread, buttery pastries, and reasons to stop by.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0944BA; --navy:#102A56; --cream:#FFF9EC; --link:#0000EE; --lime:#DDF35A;
+  --s1:10px;--s2:12px;--s3:16px;--s4:20px;--s5:24px;--s6:28px;--s7:40px;--s8:48px;--s9:72px;--s10:120px;
+  --arch:150px 150px 16px 16px; --r:16px;
+  --display:'Lilita One','Times New Roman',sans-serif; --body:'Inter',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--cream);color:var(--navy);font:400 18px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
+.on-cream :focus-visible{outline-color:var(--blue)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(44px,7vw,88px);color:var(--blue);text-align:center}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--s5)}
+section{position:relative;padding:var(--s10) 0}
+.btn{display:inline-block;font:400 16px/1 var(--display);padding:var(--s2) var(--s4);border-radius:999px;transition:transform .2s var(--spring),background .2s,color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-3px) rotate(-2deg)}.btn:active{transform:scale(.96)}
+.btn-lime{background:var(--lime);color:var(--navy)}.btn-lime:hover{background:var(--cream)}
+.btn-blue{background:var(--blue);color:var(--cream)}.btn-blue:hover{background:var(--navy)}
+.center{text-align:center}
+
+/* scallops */
+.blue-sec{background:var(--blue);color:var(--cream)}
+.scal-b{margin-bottom:24px}
+.scal-b::after{content:"";position:absolute;left:0;right:0;top:100%;height:24px;background:radial-gradient(circle at 50% 0,var(--blue) 0 12px,transparent 12.5px) 0 0/48px 24px repeat-x}
+.scal-t{margin-top:24px}
+.scal-t::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:24px;background:radial-gradient(circle at 50% 100%,var(--blue) 0 12px,transparent 12.5px) 0 0/48px 24px repeat-x}
+
+/* hero */
+.hero-sec{min-height:100svh;padding:0;display:flex;margin-bottom:24px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 70%,#2c6bff 0,var(--blue) 50%,var(--navy) 140%);overflow:hidden}
+.hero-bg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(transparent,rgba(16,42,86,.35))}
+.ribbon{position:absolute;left:-5%;top:30%;width:110%;height:50%;z-index:2;pointer-events:none}
+.ribbon path{stroke-dasharray:3000;stroke-dashoffset:0}
+.pastry{position:absolute;left:50%;bottom:6%;width:min(62vw,720px);transform:translateX(-50%);z-index:1;filter:drop-shadow(0 30px 24px rgba(16,42,86,.5));will-change:transform}
+.hero-in{position:relative;z-index:3;width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:88px var(--s5) var(--s7);max-width:1300px;margin:0 auto}
+.hero-in h1{font-size:clamp(52px,8vw,112px);color:var(--cream);max-width:12ch}
+.hero-foot{display:flex;justify-content:space-between;align-items:end;gap:var(--s5);flex-wrap:wrap}
+.hero-foot p{max-width:330px;font-size:16px;color:var(--cream)}
+.badge{position:absolute;right:clamp(16px,6vw,100px);top:clamp(30%,34%,38%);width:clamp(90px,10vw,150px);z-index:4;animation:spin 16s linear infinite;filter:drop-shadow(0 8px 10px rgba(16,42,86,.4))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sticker{position:absolute;z-index:4;filter:drop-shadow(0 8px 10px rgba(16,42,86,.35))}
+.s-cro{left:3%;bottom:20%;width:clamp(70px,9vw,130px);transform:rotate(-8deg)}
+
+/* story */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s8);align-items:center;margin-top:var(--s8)}
+.arch{border-radius:var(--arch);overflow:hidden;position:relative}
+.arch img{width:100%;aspect-ratio:1.15;object-fit:cover}
+.story p{margin-bottom:var(--s4)}
+.story .ico{width:64px;margin-bottom:var(--s2);transform:rotate(8deg)}
+@media(max-width:820px){.story{grid-template-columns:1fr}}
+
+/* best seller */
+.sub{max-width:300px;margin:var(--s3) auto var(--s7);font-size:15px;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s7) var(--s5)}
+.card{text-align:center}
+.card .ph{aspect-ratio:1.05;background:radial-gradient(ellipse at 50% 70%,#2c6bff,var(--blue) 65%);border-radius:var(--r);display:grid;place-items:center;overflow:hidden;transition:border-radius .5s var(--spring)}
+.card:hover .ph{border-radius:var(--arch)}
+.card .ph img{width:78%;transition:transform .5s var(--spring);filter:drop-shadow(0 18px 12px rgba(16,42,86,.5))}
+.card:hover .ph img{transform:scale(1.1) rotate(-6deg)}
+.price{display:inline-block;background:var(--lime);color:var(--navy);font:400 12px var(--display);padding:3px 10px;border-radius:999px;margin:var(--s3) 0 6px}
+.card h3{font-size:22px;color:var(--blue);margin-bottom:4px}
+.card p{font-size:13px;opacity:.8}
+@media(max-width:700px){.cards{grid-template-columns:1fr 1fr}.card h3{font-size:18px}}
+@media(max-width:440px){.cards{grid-template-columns:1fr}}
+
+/* order */
+.order h2{color:var(--cream)}
+.tilt{position:relative;max-width:700px;margin:0 auto;height:340px;cursor:pointer}
+.tcard{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center;background:var(--cream);color:var(--navy);border-radius:var(--r);padding:var(--s4);box-shadow:0 20px 40px -20px rgba(16,42,86,.8);transition:transform .7s var(--ease),opacity .5s;transform-origin:50% 100%}
+.tcard img{width:100%;height:100%;max-height:290px;object-fit:cover;border-radius:var(--r)}
+.tcard h3{font-size:clamp(30px,4vw,44px);color:var(--blue);margin-bottom:var(--s2)}
+.tcard p{font-size:14px;margin-bottom:var(--s3)}
+.tcard.front{transform:rotate(2deg);z-index:2}
+.tcard.back{transform:rotate(-4deg) translate(-10px,10px);z-index:1}
+.hint{font-size:12px;margin-top:var(--s4);opacity:.8}
+@media(max-width:600px){.tilt{height:520px}.tcard{grid-template-columns:1fr;align-content:start}.tcard img{max-height:200px}}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s5);align-items:stretch;margin-top:var(--s8)}
+.shop{border-radius:var(--r);overflow:hidden;min-height:340px;box-shadow:inset 0 0 0 3px var(--blue)}
+.shop img{width:100%;height:100%;object-fit:cover}
+.vcard{background:var(--cream);border-radius:var(--r);padding:var(--s6);box-shadow:inset 0 0 0 3px var(--blue);display:flex;flex-direction:column;gap:var(--s2)}
+.vcard h3{font-size:clamp(30px,3.6vw,44px);color:var(--blue)}
+.vcard p{font-size:14px}
+.hrs{display:flex;justify-content:space-between;font-size:14px;border-top:1px dashed var(--blue);padding-top:var(--s2)}
+.hrs b{font-weight:600;color:var(--blue)}
+.vcard .btn{align-self:flex-start;margin-top:var(--s2)}
+@media(max-width:820px){.visit{grid-template-columns:1fr}}
+
+/* stickers */
+.stickers{display:flex;justify-content:space-around;align-items:center;padding:var(--s7) var(--s5);flex-wrap:wrap;gap:var(--s5);max-width:1200px;margin:0 auto}
+.stickers img{width:clamp(56px,8vw,100px);transition:transform .4s var(--spring)}
+.stickers img:hover{transform:rotate(-14deg) scale(1.2)}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.1fr;gap:var(--s8);align-items:start}
+.faq h2{text-align:left;font-size:clamp(36px,4.6vw,56px);margin-bottom:var(--s4)}
+details{border-bottom:1px solid var(--blue);padding:var(--s3) 0}
+summary{list-style:none;cursor:pointer;font:400 18px var(--display);color:var(--blue);display:flex;gap:var(--s3);align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-size:22px;transition:transform .3s var(--spring);display:inline-block}
+details[open] summary::before{transform:rotate(45deg)}
+details p{font-size:15px;padding:var(--s2) 0 0 var(--s5)}
+@media(max-width:820px){.faq{grid-template-columns:1fr}}
+
+/* follow */
+.follow{overflow:hidden}
+.ghost{position:absolute;width:300px;opacity:.07;filter:grayscale(1)}
+.polar-wrap{position:relative;width:min(100%,420px);height:min(86vw,440px);margin:var(--s7) auto var(--s6);cursor:pointer}
+.polar{position:absolute;inset:0;background:var(--cream);padding:12px 12px 36px;border-radius:6px;box-shadow:0 24px 40px -18px rgba(16,42,86,.6);transition:transform .7s var(--ease),opacity .4s}
+.polar img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+
+/* footer */
+footer{background:var(--blue);color:var(--cream);padding:var(--s9) 0 var(--s5);position:relative;margin-top:24px}
+footer::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:24px;background:radial-gradient(circle at 50% 100%,var(--blue) 0 12px,transparent 12.5px) 0 0/48px 24px repeat-x}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.3fr;gap:var(--s5);font-size:14px}
+.fgrid h4{font:400 16px var(--display);margin-bottom:var(--s2)}
+.fgrid a,.fgrid span{display:block;opacity:.85;padding:2px 0}.fgrid a:hover{opacity:1;text-decoration:underline}
+.sign-up{display:flex;gap:var(--s2);margin-top:var(--s2)}
+.sign-up input{flex:1;min-width:0;padding:var(--s2) var(--s3);border-radius:8px;border:2px solid var(--cream);background:transparent;color:var(--cream);font:inherit;font-size:14px}
+.sign-up input::placeholder{color:rgba(255,249,236,.6)}
+.fmsg{font-size:13px;margin-top:6px;min-height:20px}
+.word{font:400 clamp(44px,17vw,300px)/.8 var(--display);text-align:center;letter-spacing:-.02em;margin:var(--s8) 0 var(--s5);position:relative;display:flex;justify-content:center}
+.word img{position:absolute;left:auto;right:1%;top:-6%;width:clamp(64px,9vw,130px);transform:rotate(-10deg)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);font-size:12px;opacity:.85}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>:last-child{grid-column:1/-1}}
+
+/* nav */
+nav.top{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:6px;background:rgba(255,249,236,.92);backdrop-filter:blur(8px);border-radius:999px;padding:6px;box-shadow:0 10px 24px -12px rgba(16,42,86,.6);transition:transform .4s var(--ease)}
+nav.top.hide{transform:translate(-50%,-160%)}
+nav.top a{font:400 15px var(--display);padding:10px 16px;border-radius:999px;color:var(--blue);transition:background .2s,color .2s}
+nav.top a:hover{background:var(--blue);color:var(--cream)}
+@media(max-width:560px){nav.top a{padding:9px 11px;font-size:14px}}
+</style>
+</head>
+<body>
+<nav class="top" id="nav" aria-label="Main"><a href="#menu">Menu</a><a href="#bakery">Our bakery</a><a href="#order">Catering</a><a href="#visit">Visit</a></nav>
+
+<main>
+<!-- HERO -->
+<section class="hero-sec blue-sec scal-b" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img class="pastry" id="pastry" data-src="PRiU7XwDFZreQHeaRPKKoWEMgQ.png" alt="">
+    <svg class="ribbon" viewBox="0 0 1200 400" preserveAspectRatio="none"><path id="rib" d="M-20 250 C 150 90, 330 70, 470 170 C 560 235, 640 300, 760 220 C 860 150, 780 40, 690 120 C 600 200, 760 330, 900 330 C 1040 330, 1130 250, 1230 190" fill="none" stroke="#FFF9EC" stroke-width="20" stroke-linecap="round"/></svg>
+  </div>
+  <img class="badge" data-src="Lyjc" alt="" aria-hidden="true">
+  <img class="sticker s-cro" data-src="7RnvHl5W5fd1eaq53zxZ2yFWuw.webp" alt="" aria-hidden="true">
+  <div class="hero-in">
+    <h1>A little crust, A lot of joy</h1>
+    <div class="hero-foot">
+      <a class="btn btn-lime" href="#menu">Explore the menu</a>
+      <p>A neighborhood bakery making slow-fermented bread, buttery pastries, and reasons to stop by.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="bakery" class="on-cream">
+  <div class="wrap">
+    <h2 data-r>A little flour.<br>A lot of Sunday.</h2>
+    <div class="story">
+      <div class="arch" data-r><img data-src="nYVh5MqBGDoEWcO9PNzfCheiySo.png" alt="A baker in a blue shirt carrying a tray of croissants"></div>
+      <div data-r>
+        <img class="ico" data-src="m2f4JJZwQm9ArzOybJQmmxCe8.webp" alt="" aria-hidden="true">
+        <p>We’re VÈLÔURÁ, a neighborhood bakery for slow mornings, quick coffee stops, and the pastry you think about all day.</p>
+        <p>We give our dough time, our loaves a good crust, and our counter a little something for everyone. Come for your usual. Leave with a new favorite.</p>
+        <a class="btn btn-blue" href="#visit">Our bakery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEST SELLER -->
+<section id="menu" class="on-cream" style="padding-top:var(--s7)">
+  <div class="wrap">
+    <h2 data-r>Our Best Seller</h2>
+    <p class="sub" data-r>Golden layers. Soft middles. A few very good reasons to make us your usual.</p>
+    <div class="cards" id="cards"></div>
+    <p class="center" style="margin-top:var(--s7)" data-r><a class="btn btn-blue" href="#menu">Explore the Menu</a></p>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="blue-sec scal-b scal-t order" id="order">
+  <div class="wrap center">
+    <h2 data-r>How to order</h2>
+    <p class="sub" data-r style="color:var(--cream)">Drop in for today’s bakes, or plan ahead for catering and larger orders.</p>
+    <div class="tilt" id="tilt" data-r role="group" aria-label="Ways to order. Click to see the next card." tabindex="0" style="text-align:left">
+      <article class="tcard front"><img data-src="eTFCb882eOg1d9mACfB35KlwCM.webp" alt="Hands wrapping a pastry in blue paper"><div><h3>Visit the bakery.</h3><p>Pop in for fresh bread, pastries and coffee to take away. Choose from the day’s counter selection, available while it lasts.</p><a class="btn btn-lime" href="#menu">Browse the menu</a></div></article>
+      <article class="tcard back"><img data-src="n8FYyJXgRGvqOjA7BEH7QyQAuw.webp" alt="A blue box of pastries"><div><h3>Large orders.</h3><p>Enquire at least 48 hours ahead with your date and guest count. We’ll confirm availability, price and bakery collection.</p><a class="btn btn-lime" href="mailto:hello@velloura.example">Enquire about catering</a></div></article>
+    </div>
+    <p class="hint" id="oHint" aria-live="polite">Card 1 of 2 · click to see the next</p>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit" class="on-cream" style="padding-top:var(--s9)">
+  <div class="wrap">
+    <h2 data-r>Come on in.</h2>
+    <div class="visit">
+      <div class="shop arch" style="border-radius:var(--r)" data-r><img data-src="y1JNDl2Q6oZWPioEYzRZXLqhbV8.jpg" alt="VÈLÔURÁ bakery storefront with a blue striped awning"></div>
+      <div class="vcard" data-r>
+        <h3>18 Market Lane, Brookfield</h3>
+        <p>Your morning coffee, a warm pastry and a loaf to take home. We’ll see you at the counter.</p>
+        <div class="hrs"><span>Tuesday–Friday</span><b>7am–3pm</b></div>
+        <div class="hrs"><span>Saturday–Sunday</span><b>8am–2pm</b></div>
+        <div class="hrs"><span>Monday</span><b>Closed</b></div>
+        <a class="btn btn-blue" href="https://maps.google.com/?q=18+Market+Lane+Brookfield" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stickers" id="stickers" aria-hidden="true" data-r></div>
+
+<!-- FAQ -->
+<section id="faq" class="on-cream" style="padding-top:var(--s7)">
+  <div class="wrap faq">
+    <div data-r><h2>A few things you knead to know.</h2><a class="btn btn-lime" href="mailto:hello@velloura.example">Get in touch</a></div>
+    <div data-r>
+      <details><summary>Do I need to pre-order?</summary><p>Not for everyday bakes, they’re on the counter while they last. For catering and larger orders, ask at least 48 hours ahead.</p></details>
+      <details><summary>Can I collect a pastry box?</summary><p>Yes. Tell us what you’d like and when, and we’ll have a box packed and waiting at the counter.</p></details>
+      <details><summary>Will my favourite be available?</summary><p>We bake fresh each morning and sell out most days. Come early for the best selection.</p></details>
+      <details><summary>What about dietary requirements?</summary><p>Ask at the counter. We can tell you what’s in every bake and what is made without dairy, eggs or nuts.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW -->
+<section class="follow on-cream" style="padding-top:var(--s9)">
+  <img class="ghost" data-src="WcwHTkqAXjGZ43gI2ZO3TnjH134.webp" style="left:2%;top:28%" alt="" aria-hidden="true">
+  <img class="ghost" data-src="DRbZS6sOIfo0a738urtXfYZcKU.webp" style="right:2%;top:40%" alt="" aria-hidden="true">
+  <div class="wrap center">
+    <h2 data-r>Follow the crumbs.</h2>
+    <div class="polar-wrap" id="polars" data-r role="group" aria-label="Photos. Click to see the next." tabindex="0"></div>
+    <a class="btn btn-blue" href="https://instagram.com" target="_blank" rel="noopener">Follow along on Instagram</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>Navigation</h4><a href="#bakery">Our Bakery</a><a href="#order">Catering</a><a href="#menu">Menu</a></div>
+      <div><h4>Connect</h4><a href="mailto:hello@velloura.example">Email</a><a href="tel:+10000000000">Phone</a><a href="#top">Whatsapp</a></div>
+      <div><h4>Visit Us</h4><span>18 Market Lane, Brookfield</span><span>Tue-Fri 7am-3pm</span><span>Sat-Sun 8am-2pm</span></div>
+      <div><h4>Sign up for a little joy.</h4>
+        <form class="sign-up" id="su" novalidate><label for="em" style="position:absolute;left:-9999px">Email address</label><input id="em" type="email" placeholder="Email address" required autocomplete="email"><button class="btn btn-lime" type="submit">SIGN UP</button></form>
+        <p class="fmsg" id="fm" role="status"></p></div>
+    </div>
+    <div class="word" aria-hidden="true">VÈLÔURÁ<img data-src="Lyjc" alt=""></div>
+    <div class="fbot"><span>© 2026 VÈLÔURÁ</span><span>Privacy Policy · Terms &amp; Conditions</span></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const U=f=>`https://framerusercontent.com/images/${f}`;
+// badge id is stored short; resolve here
+const BADGE='LjycqOZJs9Pyh5HOSdTkGWCMWn4.webp';
+document.querySelectorAll('img[data-src]').forEach(i=>{let f=i.dataset.src;if(f==='Lyjc')f=BADGE;i.src=U(f)});
+
+// best sellers (real prices and copy)
+const P=[['Olive & rosemary loaf','$9.50','Slow-fermented sourdough with olives and rosemary.','U4kAfDAB6eMVzvnPCw01qXvaU.png'],['Pain au chocolat','$5.50','Flaky pastry with two dark chocolate batons.','PHVjRpitmCCHSU97QhqFakyxw.png'],['Spinach & feta roll','$6.50','Golden puff pastry, spinach and creamy feta.','gNscBKCkvuSMqhWtvgBSVSRfs.png'],['Tomato cheese toastie','$9.00','Toasted sourdough, ripe tomato, melted cheddar.','ieNkikE3BTtAoxYNgENKl4D4gn8.png'],['Butter croissant','$4.50','Golden, flaky layers with a buttery middle.','e66Qq6NHTrEwJTci8kuQEzqUkqE.png'],['Chocolate chunk cookie','$3.50','Crisp edges, soft center, chunky chocolate.','H1T4aNDTB9HKMcuBXj4flJt7Isc.png']];
+$('#cards').innerHTML=P.map(p=>`<article class="card" data-r><div class="ph"><img src="${U(p[3])}?scale-down-to=1024" alt="${p[0]}" loading="lazy"></div><span class="price">${p[1]}</span><h3>${p[0]}</h3><p>${p[2]}</p></article>`).join('');
+
+// sticker row
+$('#stickers').innerHTML=['LjycqOZJs9Pyh5HOSdTkGWCMWn4.webp','3w57dE4ncaUU4oM2KUYrVXQCxE.webp','vfZ9tJZRRDSIwXna86YjUf5G0.webp','7RnvHl5W5fd1eaq53zxZ2yFWuw.webp','lbYelzEvfjE4gj9mzq8bYvCv0.webp','gBw93BVofdjryFeQzdf1dQbxas.webp','mWXFRBavhdx6hY1V2cYtpEFskh8.webp','kIVomeTFrbtvLVli5yOgFYECdjc.webp'].map(f=>`<img src="${U(f)}?scale-down-to=512" alt="" loading="lazy">`).join('');
+
+// card carousels (click / Enter / Space to cycle)
+function cycler(el,hintEl,label){
+  const cards=[...el.children];let top=0;
+  const paint=()=>cards.forEach((c,i)=>{const front=i===top;c.classList.toggle('front',front);c.classList.toggle('back',!front);c.style.zIndex=front?2:1;c.setAttribute('aria-hidden',!front)});
+  const next=()=>{top=(top+1)%cards.length;paint();if(hintEl)hintEl.textContent=`Card ${top+1} of ${cards.length} · click to see the next`};
+  el.addEventListener('click',e=>{if(!e.target.closest('a'))next()});
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();next()}});
+  paint();
+}
+cycler($('#tilt'),$('#oHint'));
+const F=['77QgnD15GaRrqtOreLy3gKtJ9tU.webp','ekbnPRyChwOajx66brEnK1SOw1o.webp','QRVmYZpIsiopc8JmXOIGOO04Xs.webp','LXUp5lJM8zN32soa9CkULl4Nafc.webp','xBma3KeYr1pHeTykYvz2RO7B5g.webp'];
+$('#polars').innerHTML=F.map((f,i)=>`<figure class="polar"><img src="${U(f)}?scale-down-to=1024" alt="VÈLÔURÁ photo ${i+1} of ${F.length}" loading="lazy"></figure>`).join('');
+(function(){const el=$('#polars'),c=[...el.children];let top=0;
+  const paint=()=>c.forEach((p,i)=>{const d=(i-top+c.length)%c.length;p.style.zIndex=c.length-d;p.style.transform=`rotate(${[ -3,4,-6,6,-2][d%5]}deg) translate(${d*6}px,${d*5}px)`;p.style.opacity=d>2?0:1});
+  const next=()=>{top=(top+1)%c.length;paint()};
+  el.onclick=next;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();next()}};paint()})();
+
+$('#su').onsubmit=e=>{e.preventDefault();const i=$('#em'),ok=i.value&&i.checkValidity();$('#fm').textContent=ok?'You’re on the list. See you Sunday!':'Please enter a valid email.';if(ok)i.value=''};
+
+// scroll effects: always on (no reduced-motion gate); content stays visible if CDNs are blocked
+if(window.gsap&&window.ScrollTrigger&&window.Lenis){
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+  lenis.on('scroll',({direction,scroll})=>{ScrollTrigger.update();$('#nav').classList.toggle('hide',direction===1&&scroll>500)});
+  gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const h=a.getAttribute('href'),t=h==='#top'?0:document.querySelector(h);if(t!==null){e.preventDefault();lenis.scrollTo(t,{offset:-10})}});
+  gsap.from('.hero-in h1',{y:80,opacity:0,duration:1.2,ease:'expo.out',delay:.1});
+  gsap.from('#pastry',{y:120,scale:.85,opacity:0,duration:1.4,ease:'expo.out',delay:.2});
+  const len=$('#rib').getTotalLength();gsap.fromTo('#rib',{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:2.2,ease:'power2.inOut',delay:.4});
+  gsap.to('#pastry',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.hero-sec',start:'top top',end:'bottom top',scrub:true}});
+  gsap.utils.toArray('[data-r]').forEach(el=>gsap.from(el,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+  gsap.utils.toArray('.arch,.card .ph').forEach(el=>gsap.fromTo(el,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.4,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
+}
+</script>
+</body>
+</html>

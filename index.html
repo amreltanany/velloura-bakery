@@ -261,12 +261,12 @@ html.loading,html.loading body{overflow:hidden}
     <div class="visit">
       <div class="shop arch" style="border-radius:var(--r)" data-r><img data-src="y1JNDl2Q6oZWPioEYzRZXLqhbV8.jpg" alt="VÈLÔURÁ bakery storefront with a blue striped awning"></div>
       <div class="vcard" data-r>
-        <h3>18 Market Lane, Brookfield</h3>
+        <h3>18 Street 90, Fifth Settlement, New Cairo</h3>
         <p>Your morning coffee, a warm pastry and a loaf to take home. We’ll see you at the counter.</p>
         <div class="hrs"><span>Tuesday–Friday</span><b>7am–3pm</b></div>
         <div class="hrs"><span>Saturday–Sunday</span><b>8am–2pm</b></div>
         <div class="hrs"><span>Monday</span><b>Closed</b></div>
-        <a class="btn btn-blue" href="https://maps.google.com/?q=18+Market+Lane+Brookfield" target="_blank" rel="noopener">Get directions</a>
+        <a class="btn btn-blue" href="https://maps.google.com/?q=18+Street+90+Fifth+Settlement+New+Cairo+Egypt" target="_blank" rel="noopener">Get directions</a>
       </div>
     </div>
   </div>
@@ -303,8 +303,8 @@ html.loading,html.loading body{overflow:hidden}
   <div class="wrap">
     <div class="fgrid">
       <div><h4>Navigation</h4><a href="#bakery">Our Bakery</a><a href="#order">Catering</a><a href="#menu">Menu</a></div>
-      <div><h4>Connect</h4><a href="mailto:hello@velloura.example">Email</a><a href="tel:+10000000000">Phone</a><a href="#top">Whatsapp</a></div>
-      <div><h4>Visit Us</h4><span>18 Market Lane, Brookfield</span><span>Tue-Fri 7am-3pm</span><span>Sat-Sun 8am-2pm</span></div>
+      <div><h4>Connect</h4><a href="mailto:hello@velloura.example">Email</a><a href="tel:+20200000000">Phone</a><a href="#top">Whatsapp</a></div>
+      <div><h4>Visit Us</h4><span>18 Street 90, Fifth Settlement, New Cairo</span><span>Tue-Fri 7am-3pm</span><span>Sat-Sun 8am-2pm</span></div>
       <div><h4>Sign up for a little joy.</h4>
         <form class="sign-up" id="su" novalidate><label for="em" style="position:absolute;left:-9999px">Email address</label><input id="em" type="email" placeholder="Email address" required autocomplete="email"><button class="btn btn-lime" type="submit">SIGN UP</button></form>
         <p class="fmsg" id="fm" role="status"></p></div>
@@ -326,7 +326,7 @@ const BADGE='LjycqOZJs9Pyh5HOSdTkGWCMWn4.webp';
 document.querySelectorAll('img[data-src]').forEach(i=>{let f=i.dataset.src;if(f==='Lyjc')f=BADGE;i.src=U(f)});
 
 // best sellers (real prices and copy)
-const P=[['Olive & rosemary loaf','$9.50','Slow-fermented sourdough with olives and rosemary.','U4kAfDAB6eMVzvnPCw01qXvaU.png'],['Pain au chocolat','$5.50','Flaky pastry with two dark chocolate batons.','PHVjRpitmCCHSU97QhqFakyxw.png'],['Spinach & feta roll','$6.50','Golden puff pastry, spinach and creamy feta.','gNscBKCkvuSMqhWtvgBSVSRfs.png'],['Tomato cheese toastie','$9.00','Toasted sourdough, ripe tomato, melted cheddar.','ieNkikE3BTtAoxYNgENKl4D4gn8.png'],['Butter croissant','$4.50','Golden, flaky layers with a buttery middle.','e66Qq6NHTrEwJTci8kuQEzqUkqE.png'],['Chocolate chunk cookie','$3.50','Crisp edges, soft center, chunky chocolate.','H1T4aNDTB9HKMcuBXj4flJt7Isc.png']];
+const P=[['Olive & rosemary loaf','EGP 230','Slow-fermented sourdough with olives and rosemary.','U4kAfDAB6eMVzvnPCw01qXvaU.png'],['Pain au chocolat','EGP 130','Flaky pastry with two dark chocolate batons.','PHVjRpitmCCHSU97QhqFakyxw.png'],['Spinach & feta roll','EGP 155','Golden puff pastry, spinach and creamy feta.','gNscBKCkvuSMqhWtvgBSVSRfs.png'],['Tomato cheese toastie','EGP 215','Toasted sourdough, ripe tomato, melted cheddar.','ieNkikE3BTtAoxYNgENKl4D4gn8.png'],['Butter croissant','EGP 110','Golden, flaky layers with a buttery middle.','e66Qq6NHTrEwJTci8kuQEzqUkqE.png'],['Chocolate chunk cookie','EGP 85','Crisp edges, soft center, chunky chocolate.','H1T4aNDTB9HKMcuBXj4flJt7Isc.png']];
 $('#cards').innerHTML=P.map(p=>`<article class="card" data-r><div class="ph"><img src="${U(p[3])}?scale-down-to=1024" alt="${p[0]}" loading="lazy"></div><span class="price">${p[1]}</span><h3>${p[0]}</h3><p>${p[2]}</p></article>`).join('');
 
 // sticker row
